@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logo Particles</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #fff;
+      }
+      img {
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <img src="f.png" id="logo" alt="Logo" />
+
+    <script src="./particle.js"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            nextParticle = new NextParticle({
+        image: document.all.logo,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        maxWidth: window.innerWidth * 0.49,
+        particleSize: 3,
+        particleGap: 3,
+        gravity: 0
+
+        
+      });
+      window.onresize = function () {
+        if (window.innerWidth > 600) {
+          nextParticle.width = window.innerWidth - 20;
+          nextParticle.height = window.innerHeight - 20;
+          nextParticle.start();
+        }
+      };
+    })
+
+    </script>
+  </body>
+</html>
